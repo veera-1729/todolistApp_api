@@ -1,0 +1,15 @@
+<%layout('layouts/boilerplate')%>
+<div class="col-6 offset-3">
+    <h1 class="mb-3 mt-3 font-monospace fw-bold">SIGN UP!</h1>
+    <form action="/register" method="POST">
+        <div class="mb-3">
+            <label for="username" class="form-label fw-bold">Enter Username</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Enter Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="password">
+        </div>
+        <button class="btn btn-primary fw-bold">Sign Up</button>
+    </form>
+</div>

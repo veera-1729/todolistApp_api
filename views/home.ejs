@@ -1,0 +1,72 @@
+<%layout('layouts/boilerplate')%>
+
+    <h1 class="text-center">Hi <%= foundUser.username %>, Welocme back </h1>
+
+    <h2 class="fw-light">Your Tasks</h2>
+
+    <table class="mb-3">
+        <tr>
+            
+            <th>Task</th>
+            <th>Due Time</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+        <% const i =1 %> 
+        <% for(let task of data) {%>
+            
+            <div>
+                <tr>
+                    <p class="font-monospace fw-bold fs-5">
+                          
+                        <td>
+                            <%=task.description%>
+                        </td>
+                        <td>
+                            <%=task.time%>
+                        </td>
+                        <td>
+                            <a href="/edit/<%=foundUser._id%>/<%=task._id%>"><button class="btn btn-info">Edit</button></a>
+                        </td>
+                        <td>
+                            <a href="/delete/<%=foundUser._id%>/<%=task._id%>"><button class="btn btn-danger">Delete</button></a>
+                        </td>
+                    </p>
+                </tr>
+
+            </div>
+           
+            <% } %>
+
+    </table>
+
+    <form action="/addtodo/<%=foundUser._id%>" method="POST">
+        <p>
+
+            <a class="btn btn-primary" role="button" data-bs-toggle="collapse" href="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+                Add New Todo
+            </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body mb-3 col-6 offset-3">
+                <label for="todo" class="fw-bold mb-3">Add Description</label>
+                <input class="mb-3" type="text" id="todo" name="todo[description]" placeholder="Describe your todo" required>
+                <label for="time" class="fw-bold mb-3">Enter the expected time</label>
+                <input type="date" id="time" name="todo[time]" placeholder="time" required>
+            </div>
+
+            <button type="submit" class="btn btn-success fw-bold mb-3">Save</button>
+
+        </div>
+
+    </form>
+
+    <a href="/logout"><button class="btn btn-warning mb-3">Sign Out</button></a>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
