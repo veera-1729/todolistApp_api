@@ -1,9 +1,7 @@
 const mongoose  = require('mongoose')
 const User = require('./user')
 const todo = new mongoose.Schema({
-    description:String,
-        //required:[true,"task cannot be empty"]
-    
+    description:String, 
     time:Date,
     user:String,
 
