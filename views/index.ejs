@@ -13,20 +13,22 @@
                 amet sed. Minima optio nostrum a modi magnam beatae. Velit dolores voluptatum expedita debitis iure.
             </p>
             <div class="col-6 offset-3">
-            <h1 class="mb-3 mt-3 font-monospace fw-bold text-center">LOG IN</h1>
-            <form action="/login" method="POST" style="background-color:beige">
-                <div class="mb-3">
-                    <label for="username" class="form-label fw-bold">Enter Username</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="username">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label fw-bold">Enter Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="password" style="width:100 px    ">
-                </div>
-                <button class="btn btn-primary fw-bold">Login</button>
-                <p class="font-monospace ">Don't have an account <a href="/register" class="fw-bold text-monospace">Sign Up</a></p>
-            </form>
-        </div>
-             
+                <h1 class="mb-3 mt-3 font-monospace fw-bold text-center">LOG IN</h1>
+                <form action="/auth/login" method="POST" style="background-color:beige">
+                    <div class="mb-3">
+                        <label for="username" class="form-label fw-bold">Enter Username</label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-bold">Enter Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="password"
+                            style="width:100 px    ">
+                    </div>
+                    <button class="btn btn-primary fw-bold">Login</button>
+                    <p class="font-monospace ">Don't have an account <a href="/auth/register"
+                            class="fw-bold text-monospace">Sign Up</a></p>
+                </form>
+            </div>
+
         </div>
     </div>
