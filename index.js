@@ -22,8 +22,10 @@ mongoose.connect(process.env.mongodburl, { useNewUrlParser: true, useUnifiedTopo
 //function to check whether user is logged in or not
 //this function will be helpful to protect multiple end points
 const requireLogin = (req, res, next) => {
+    
     if (!req.session.user_id) {
-        return res.redirect('/login')
+         
+        return  res.render('login')
     }
 
     next()
@@ -45,7 +47,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/auth', auth)
- 
+
 
 
 //adding a new todo
@@ -67,13 +69,13 @@ app.post('/addtodo/:id', requireLogin, async (req, res) => {
 })
 //Home page
 app.get('/', (req, res) => {
-    //res.send('THIS IS THE HOME PAGE')
+     
     res.render('index')
-}) 
+})
 
 //editing the tasks
-app.get('/edit/:id/:tid', requireLogin, async (req, res) => { 
-
+app.get('/edit/:id/:tid', requireLogin, async (req, res) => {
+     
     const foundUser = await User.findById(req.params.id)
     const task = await todos.findOne({ user: foundUser.username, _id: req.params.tid })
     res.render('edit', { task, foundUser })
@@ -99,14 +101,7 @@ app.get('/delete/:id/:tid', requireLogin, async (req, res) => {
     await foundUser.save()
     const data = await foundUser.tasks
     res.render('home', { foundUser, data })
-})
-
-//loggin out some one
-app.get('/logout', requireLogin, (req, res) => {
-    req.session.user_id = null
-    req.flash('success', "Logged out Successfully")
-    res.redirect('/login')
-})
+}) 
 
 const port = process.env.port || 3000
 app.listen(port, (req, res) => {

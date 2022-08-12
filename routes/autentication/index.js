@@ -3,9 +3,12 @@ const router = express.Router()
 const User = require('../../models/user')
 const todos = require('../../models/task')
 const bcrypt = require('bcrypt')
+
+
 const requireLogin = (req, res, next) => {
     if (!req.session.user_id) {
-        return res.redirect('/auth/login')
+
+        return res.render('login')
     }
 
     next()
@@ -22,7 +25,8 @@ router.post('/register', async (req, res) => {
     const isvalid = await User.findOne({ username: username })
     if (isvalid != null) {
         req.flash('error', 'username already exists')
-        res.redirect('/register')
+
+        res.redirect('register')
     }
     const newuser = new User({ username, password })
     //pre method in user model is called before newuser is going to be saved 
@@ -60,6 +64,7 @@ router.post('/login', async (req, res) => {
         }
         else {
             req.flash('error', 'Invalid Username or password')
+
             res.redirect('register')
         }
     }
@@ -73,9 +78,10 @@ router.post('/login', async (req, res) => {
 
 //loggin out some one
 router.get('/logout', requireLogin, (req, res) => {
+
     req.session.user_id = null
-    req.flash('success', "Logged out Successfully")
-    res.redirect('login')
+    //req.flash('success', "Logged out Successfully")
+    res.render('login')
 })
 
 
