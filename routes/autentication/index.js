@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../../models/user')
 const todos = require('../../models/task')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 
 const requireLogin = (req, res, next) => {
