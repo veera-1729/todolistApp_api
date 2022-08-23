@@ -4,11 +4,11 @@
     <form action="/auth/register" method="POST">
         <div class="mb-3">
             <label for="username" class="form-label fw-bold">Enter Username</label>
-            <input type="email" class="form-control" name="username" id="username" placeholder="username@email.com">
+            <input type="email" class="form-control" name="username" id="username" placeholder="username@email.com" required="true">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label fw-bold">Enter Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="password" required="true">
         </div>
         <button class="btn btn-primary fw-bold">Sign Up</button>
     </form>

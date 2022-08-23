@@ -19,12 +19,12 @@
                 <form action="/auth/login" method="POST" style="background-color:beige">
                     <div class="mb-3">
                         <label for="username" class="form-label fw-bold">Enter Username</label>
-                        <input type="email" class="form-control" name="username" id="username" placeholder="username@email.com">
+                        <input type="email" class="form-control" name="username" id="username" placeholder="username@email.com" required="true">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label fw-bold">Enter Password</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="password"
-                            style="width:100 px    ">
+                            style="width:100 px    " required="true">
                     </div>
                     <button class="btn btn-primary fw-bold">Login</button>
                     <p class="font-monospace ">Don't have an account <a href="/auth/register"

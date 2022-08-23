@@ -59,7 +59,7 @@ router.post('/login', async (req, res) => {
             await foundUser.populate('tasks')
             await foundUser.save()
             const data = foundUser.tasks
-
+            //req.flash('success','Login successful')
             res.render('home', { foundUser, data })
         }
         else {
