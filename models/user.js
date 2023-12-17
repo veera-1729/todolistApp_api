@@ -6,10 +6,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Username cannot be empty']
     },
-
     password: {
         type: String,
         required: [true, 'Password cannot be empty']
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     },
     tasks: [
         {type:mongoose.Schema.Types.ObjectId, ref:todos}

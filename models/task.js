@@ -1,10 +1,12 @@
 const mongoose  = require('mongoose')
-const User = require('./user')
 const todo = new mongoose.Schema({
     description:String, 
     time:Date,
-    user:String,
-
+    userID:String,
+    status:{
+        type:String,
+        default:"Pending"
+    }
 })
 
 
